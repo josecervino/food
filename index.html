@@ -405,8 +405,8 @@ function buildMap(data, calledbysearch) {
 	/* sorting by Summer Meal Sites then alphabetical UNLESS there is a specific thing searched in searchbox */
 	if (calledbysearch !== 1) {
 		data = sortSiteListing(data);
-		console.log(calledbysearch);
-		console.log(sortSiteListing(data));
+//		console.log(calledbysearch);
+//		console.log(sortSiteListing(data));
 	}
 	
 	displayedDirectory = data;
@@ -516,7 +516,7 @@ function setDisplays() {
 			var datecomp = new Date(rawArrayData[i].Start);
 		//	console.log(today, datecomp);
 			if (today < datecomp) {
-				console.log(rawArrayData[i].Start, rawArrayData[i].Title, rawArrayData[i].Event);
+	//			console.log(rawArrayData[i].Start, rawArrayData[i].Title, rawArrayData[i].Event);
 				midArray.push(rawArrayData[i]);
 				}
 			}
@@ -538,7 +538,7 @@ function setDisplays() {
 		}
 	});
 	cleanArray = midArray;
-   console.log(midArray);
+ //  console.log(midArray);
    addDays();
    pullUniques();
  	buildMap(cleanArray, 0);
@@ -693,7 +693,7 @@ function pullUniques(){
   function showInfo(data, tabletop) {
    rawData = data["DATA SHEET"];
    rawArrayData = rawData.elements;
-   console.log(rawArrayData);
+ //  console.log(rawArrayData);
    setDisplays();
 
 

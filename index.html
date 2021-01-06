@@ -529,7 +529,7 @@ function setDisplays() {
    titleArray.forEach( function (i) { 
 	if(midArray.indexOf(i) < 0) {
 		var datecomp = new Date(i.Start);
-		if ((i.Event == "Event") && (today < datecomp)) {
+		if ((i.Event == "Event") ) {
 			midArray.push(i);
 		}
 		else if (i.Event !== "Event") {
@@ -538,7 +538,7 @@ function setDisplays() {
 		}
 	});
 	cleanArray = midArray;
-   
+   console.log(midArray);
    addDays();
    pullUniques();
  	buildMap(cleanArray, 0);
@@ -602,7 +602,7 @@ function getSelectedVariables(){
 		if (thisColumn.length >0) {
 			selectedSites.push(thisColumn);	
 		}
-		console.log(thisColumn);
+//		console.log(thisColumn);
 	}
 
 	var carrySelection = selectedSites.shift().reduce(function(res, v) {
@@ -670,7 +670,7 @@ function pullUniques(){
 		
 	times = ["Morning", "Midday", "Afternoon", "Evening", "24 Hours"];
 		indexOfVariables.push([times, "Times of Day", "Time_of_day"]);
-		console.log(indexOfVariables);
+//		console.log(indexOfVariables);
 		
 	food = ["Meals - grab & go", "Pantry items"];
 		indexOfVariables.push([food, "Food offered","Food"]);

@@ -252,7 +252,7 @@ legend.onAdd = function (mappie) {
 
     var div = L.DomUtil.create('div', 'info legend');
         div.innerHTML +=
-            '<i style="background:#fe019a"></i> ' + ' YOUTH MEALS' + '<br>' +
+            '<i style="background:#fe019a"></i> ' + ' YOUTH MEALS / SUMMER MEALS' + '<br>' +
 			'<i style="background:#900C3F"></i> ' + ' OTHER SITES' + '<br>';
 
 
@@ -300,6 +300,10 @@ function markercolor(type) {
 
 switch(type) {
   case "YOUTH MEALS":
+    return "#fe019a";
+    break;
+	
+	case "SUMMER MEAL SITE":
     return "#fe019a";
     break;
 

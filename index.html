@@ -442,10 +442,10 @@ function buildMap(data, calledbysearch) {
 		
 		xTitle.innerHTML = siteHeader;
 		
-		if (spot.Site_Type == 'YOUTH MEALS') {
+		if ((spot.Site_Type == 'YOUTH MEALS')||(spot.Site_Type == 'SUMMER MEAL SITE')) {
 			var sumSite = document.createElement('div');
 			sumSite.setAttribute('class','siteFlag');
-			sumSite.innerHTML = ' YOUTH MEALS ';
+			sumSite.innerHTML = ' YOUTH/SUMMER MEALS ';
 			listingDiv.appendChild(sumSite);
 			
 			var sumDot = document.createElement('div');

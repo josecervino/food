@@ -41,6 +41,9 @@
 
 <!-- Fuse.js -- thanks, Kiro, you've saved me with so many projects -->	
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.0"></script>	
+
+<!-- Google Translate -->
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	
 
 <!-- fonts stylesheet -->   
@@ -65,16 +68,26 @@
   gtag('config', 'UA-86606503-3');
 </script>
 
+
 <div id="page-wrap">
 <div name="titlebar">
 <a target='blank' href='https://trentonhealthteam.org/'><img class="headerImage" src="TrentonHealthTeam.jpg"></a>
 <h1 style='padding-top:20px;'>Trenton Area Free Food Resources</h1>
 </div>
+<div id="google_translate_element" style="padding-bottom:15px"></div>
 <div class="infobar">
 This resource was created by <a target='blank' href="https://trentonhealthteam.org/">Trenton Health Team</a> to provide consistent and up-to-date food access information to the community during the COVID-19 crisis. It was initially created by THT's Care Management Team. This list will be updated regularly, but <b>all food distribution sites and times are subject to change</b>. 
 The directory is also available as a <a target="blank" href="https://docs.google.com/document/d/1ifcoRiFGVWLtstl4603myQPk6Guv4UO0cEp6Y8rSoZw/edit">printable document</a> and as a <a target = 'blank' href ='https://calendar.google.com/calendar/b/2/embed?src=c3RsdWZ2Zjc1M2IyMnVkcTdvc290YXFyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp&mode=AGENDA'>Google Calendar</a>.
 If you see anything that needs to be updated, please contact Matthew Broad at mbroad@trentonhealthteam.org or 609.337.4040.
 </div>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages : 'es,pl,ht'}, 'google_translate_element');
+}
+</script>
+
 <div class="spacer" style="border-color:#fff; border-width:20px;"></div>
 <div class="spacer"></div>
 <div class="spacer" style="border-color:#fff; border-width:20px;"></div>
@@ -436,7 +449,7 @@ function buildMap(data, calledbysearch) {
 		xTitle.setAttribute("onClick","mapFocus(this.id)");
 
 		var siteHeader = 
-					"<h3>" + spot.Title + "</h3>" +
+					"<h3 translate='no'>" + spot.Title + "</h3>" +
 			"<h4 class = 'siteSubhead'>" + spot.Location + "</h4>" +
 			"<div style='color:#106da8; margin-top:-18px;padding-bottom:20px;'>Site contact: " + spot.Contact + "</div>" ;
 		

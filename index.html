@@ -489,14 +489,14 @@ function buildMap(data, calledbysearch) {
 			"<br><br>" + 
 			spot.Description + 
 						"<br><br>" + 
-			"<b>People served: </b>" + spot.Eligibility + "<br>" +
+			"<b>This resource serves: </b>" + spot.Eligibility + "<br>" +
 			"<b>Food available: </b>" + spot.Food + "<br>" +
 			"<b>Time of day: </b>" + spot.Time_of_day + "<br>" ;
 		}	
 		else { listing = 
 						spot.Description + 
 						"<br><br>" + 
-			"<b>This site serves: </b>" + spot.Eligibility + "<br>" +
+			"<b>This resource serves: </b>" + spot.Eligibility + "<br>" +
 			"<b>Food available: </b>" + spot.Food + "<br>" +
 			"<b>Time of day: </b>" + spot.Time_of_day + "<br>" ;
 			}
@@ -680,7 +680,7 @@ function setUpClickers() {
 
 function pullUniques(){
 	sitetypes = ["YOUTH MEALS", "SUMMER MEAL SITE", "OTHER"];
-		indexOfVariables.push([sitetypes, "Site Types", "Site_Type"]);
+		indexOfVariables.push([sitetypes, "Resource Types", "Site_Type"]);
 	
 	days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 		indexOfVariables.push([days, "Days", "Day"]); 

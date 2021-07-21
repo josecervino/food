@@ -94,7 +94,7 @@ function googleTranslateElementInit() {
 <div id='buttonbar'>
 <button class='toggle-button' id='mapclose' onclick='mapToggle()'>Show Map</button>
 <button class='toggle-button' id='menuclose' onclick='filterToggle()'>Show/Hide Search</button>
-<button class='toggle-button' id='showall' onclick='buildMap(cleanArray, 0)'>Show All Sites</button>
+<button class='toggle-button' id='showall' onclick='buildMap(cleanArray, 0)'>Show All Resources</button>
 </div>
 <div id = "menubar">
 <div id='clearall2' onClick = 'clearAllSearches()'><h4 style='margin:0;text-transform:uppercase;'>Clear all</h4>
@@ -102,10 +102,10 @@ function googleTranslateElementInit() {
 <div id ="searchbar">
 <div id='clearall1' onClick = 'clearAllSearches()'><h4 style='margin:0;text-transform:uppercase;'>Clear all</h4>
 </div>
-<h4 style='margin:0;text-transform:uppercase;'>Search sites </h4>
+<h4 style='margin:0;text-transform:uppercase;'>Search resources </h4>
 <input name = 'freesearch' id='freesearch' type='text'></input>
 </div>
-<h4 style='margin:0;text-transform:uppercase;'>Filter sites by...</h4>
+<h4 style='margin:0;text-transform:uppercase;'>Filter resources by...</h4>
 </div>
 <div id="spacer"></div>
 <div id="mapcontainer">
@@ -115,7 +115,7 @@ function googleTranslateElementInit() {
 <div id="artTableHolder" style="height:100%; overflow-y:hidden;padding-top:5px;">
 <div class="loader"></div>
 </div>
-<div id="bottombar">Created by <a href="https://trentonhealthteam.org/">Trenton Health Team</a>, 2020. Please check information with sites directly.</div>
+<div id="bottombar">Created by <a href="https://trentonhealthteam.org/">Trenton Health Team</a>, 2020. Please check information with locations/resources directly.</div>
 </div>
 
 <script type="text/javascript" src="d3.min.js"></script>
@@ -218,7 +218,7 @@ var esriSearch = L.esri.Geocoding.geosearch({
     ], 	  
 	zoomToResult:false,
 	allowMultipleResults:false,
-	placeholder: 'Enter an address for sites within 1/2 mile'
+	placeholder: 'Enter an address for resources within 1/2 mile'
    
   });
   
@@ -266,7 +266,7 @@ legend.onAdd = function (mappie) {
     var div = L.DomUtil.create('div', 'info legend');
         div.innerHTML +=
             '<i style="background:#fe019a"></i> ' + ' YOUTH MEALS / SUMMER MEALS' + '<br>' +
-			'<i style="background:#900C3F"></i> ' + ' OTHER SITES' + '<br>';
+			'<i style="background:#900C3F"></i> ' + ' OTHER RESOURCES' + '<br>';
 
 
     return div;
@@ -451,7 +451,7 @@ function buildMap(data, calledbysearch) {
 		var siteHeader = 
 					"<h3 translate='no'>" + spot.Title + "</h3>" +
 			"<h4 class = 'siteSubhead'>" + spot.Location + "</h4>" +
-			"<div style='color:#106da8; margin-top:-18px;padding-bottom:20px;'>Site contact: " + spot.Contact + "</div>" ;
+			"<div style='color:#106da8; margin-top:-18px;padding-bottom:20px;'>Contact: " + spot.Contact + "</div>" ;
 		
 		xTitle.innerHTML = siteHeader;
 		

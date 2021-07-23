@@ -448,18 +448,29 @@ function buildMap(data, calledbysearch) {
 		xTitle.setAttribute('id',i);
 		xTitle.setAttribute("onClick","mapFocus(this.id)");
 
-		var siteHeader = 
-					"<h3 translate='no'>" + spot.Title + "</h3>" +
+		var siteHeader = '';
+		
+		siteHeader+=			"<h3 translate='no'>" + spot.Title + "</h3>" +
 			"<h4 class = 'siteSubhead' translate='no'>" + spot.Location + "</h4>" +
 			"<div style='color:#106da8; margin-top:-18px;padding-bottom:20px;'>Contact: " + "<span translate='no'>" + spot.Contact + "</span></div>" ;
 		
 		xTitle.innerHTML = siteHeader;
 		
 		if ((spot.Site_Type == 'YOUTH MEALS')||(spot.Site_Type == 'SUMMER MEAL SITE')) {
+			
+			var flagList = document.createElement('div');
+			flagList.setAttribute('style', 'float:right;max-width:200px;');
+			listingDiv.appendChild(flagList);
+			
 			var sumSite = document.createElement('div');
 			sumSite.setAttribute('class','siteFlag');
-			sumSite.innerHTML = ' YOUTH/SUMMER MEALS ';
-			listingDiv.appendChild(sumSite);
+			sumSite.innerHTML = ' YOUTH / SUMMER MEALS';
+			flagList.appendChild(sumSite);
+			
+			var sumSpons = document.createElement('div');
+			sumSpons.setAttribute('style', 'font-size:93%;color:#fe019a');
+			sumSpons.innerHTML = '<br>Sponsor: ' + spot.SFSP_Sponsor;
+			flagList.appendChild(sumSpons);
 			
 			var sumDot = document.createElement('div');
 			sumDot.setAttribute('class','siteDot');

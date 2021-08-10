@@ -36,8 +36,13 @@
     integrity="sha512-HrFUyCEtIpxZloTgEKKMq4RFYhxjJkCiF5sDxuAokklOeZ68U2NPfh4MFtyIVWlsKtVbK5GD2/JzFyAfvT5ejA=="
     crossorigin=""></script>
 	
-  <!-- Tabletop to access Google spreadsheets - THANK YOU AMAZING HUMANS WHO CREATED THIS!! I can't believe Google is killing it :-( SOB!!! -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <!-- Tabletop to access Google spreadsheets - THANK YOU AMAZING HUMANS WHO CREATED THIS!! I can't believe Google is killing it :-( SOB!!! 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script> 
+
+And now replaced with PapaParse - hope this works... -->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
 
 <!-- Fuse.js -- thanks, Kiro, you've saved me with so many projects -->	
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.0"></script>	
@@ -79,6 +84,9 @@
 This resource was created by <a target='blank' href="https://trentonhealthteam.org/">Trenton Health Team</a> to provide consistent and up-to-date food access information to the community during the COVID-19 crisis. It was initially created by THT's Care Management Team. This list will be updated regularly, but <b>all resources, locations, and times are subject to change</b>. 
 The directory is also available as a <a target="blank" href="https://docs.google.com/document/d/1ifcoRiFGVWLtstl4603myQPk6Guv4UO0cEp6Y8rSoZw/edit">printable document</a> and as a <a target = 'blank' href ='https://calendar.google.com/calendar/b/2/embed?src=c3RsdWZ2Zjc1M2IyMnVkcTdvc290YXFyNzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp&mode=AGENDA'>Google Calendar</a>.
 If you see anything that needs to be updated, please contact Matthew Broad at mbroad@trentonhealthteam.org or 609.337.4040.
+<br><br>
+<b><span style="background-color:'#Ffff00'">Note: 8/10/21 3:00 pm -- we're troubleshooting a coding issue that has temporarily made the database unaccessible. Please bear with us! We'll be back online soon.
+</span></b>
 </div>
 
 
@@ -87,6 +95,8 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages : 'es,pl,ht'}, 'google_translate_element');
 }
 </script>
+
+<!--
 
 <div class="spacer" style="border-color:#fff; border-width:20px;"></div>
 <div class="spacer"></div>
@@ -357,7 +367,7 @@ function markerClick(e){
 		}
 }
 
-<!-- search with Fuse -->
+<!-- search with Fuse 
 
 const options = {
   minMatchCharLength: 4,
@@ -711,12 +721,26 @@ function pullUniques(){
 	
 }
 
-
+/*
   function init() {
     Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1XEy-4bzgaT8NUgIP5VzurfVybxpz-bOdchod8wP23PQ/pubhtml',
                      callback: showInfo,
                      simpleSheet: false } )
   }
+*/
+  
+  function init() {
+			var spreadsheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQN6Mg5oA8Em6S2io-9E8MLnRnJtMNxn7KvXJ69UMNNcezkAIxZEDzqc4xw8pvKn-KNKcDZqDKZAmBo/pub?gid=1679428937&single=true&output=csv";
+          Papa.parse(spreadsheetURL, {
+          download: true,
+          header: true,
+          complete: function(results) {
+            var data = results.data;
+            console.log(data);
+          }
+        })
+		}
+
 
   function showInfo(data, tabletop) {
    rawData = data["DATA SHEET"];
@@ -734,6 +758,6 @@ function pullUniques(){
 	
 </script> 
   
-
+-->
 </body>
 </html>

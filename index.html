@@ -89,7 +89,7 @@ If you see anything that needs to be updated, please contact Matthew Broad at mb
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages : 'es,pl,ht'}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages : 'es,pl,ht,en'}, 'google_translate_element');
 }
 </script>
 
@@ -100,8 +100,8 @@ function googleTranslateElementInit() {
 <div class="spacer" style="border-color:#fff; border-width:20px;"></div>
 <div id='buttonbar'>
 <button class='toggle-button' id='mapclose' onclick='mapToggle()'>Show Map</button>
-<button class='toggle-button' id='menuclose' onclick='filterToggle()'>Show/Hide Search</button>
-<button class='toggle-button' id='showall' onclick='buildMap(cleanArray, 0)'>Show All Resources</button>
+<button class='toggle-button' id='menuclose' onclick='filterToggle()'>Show Search</button>
+<button class='toggle-button' id='showall' onclick='buildMap(cleanArray, 0)'>Show All</button>
 </div>
 <div id = "menubar">
 <div id='clearall2' onClick = 'clearAllSearches()'><h4 style='margin:0;text-transform:uppercase;'>Clear all</h4>
@@ -181,11 +181,13 @@ function mapToggle(){
 function filterToggle(){
 	if (filterOn != 1) {
 		document.getElementById("menubar").style.display = 'block';
+		document.getElementById("menuclose").innerHTML = 'HIDE SEARCH';
 		filterOn =1;
 	}
 	
 	else {
 		document.getElementById("menubar").style.display = 'none';
+		document.getElementById("menuclose").innerHTML = 'SHOW SEARCH';
 		filterOn = 0;
 	}
 }
@@ -731,7 +733,7 @@ function pullUniques(){
   function init() {
 
 			var spreadsheetURL = "https://sheets.googleapis.com/v4/spreadsheets/1XEy-4bzgaT8NUgIP5VzurfVybxpz-bOdchod8wP23PQ/values/'DATASHEET'!A1:AH280?key=AIzaSyBjLmpnp1XcgsxoLGA6iRerSSsjFqtAOmE";
-		console.log(spreadsheetURL);
+	//	console.log(spreadsheetURL);
 		
 		
 		 return fetch(spreadsheetURL).then(response =>
@@ -753,7 +755,7 @@ function pullUniques(){
   function showInfo(results) {
 //	console.log(results);
    rawArrayData = results.data;
-  // console.log(rawArrayData);
+//   console.log(rawArrayData);
  //  rawArrayData = rawData.elements;
  //  console.log(rawArrayData);
   setDisplays();

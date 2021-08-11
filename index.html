@@ -96,7 +96,7 @@ function googleTranslateElementInit() {
 }
 </script>
 
-<!--
+
 
 <div class="spacer" style="border-color:#fff; border-width:20px;"></div>
 <div class="spacer"></div>
@@ -728,29 +728,42 @@ function pullUniques(){
                      simpleSheet: false } )
   }
 */
+  -->
   
+ 
   function init() {
-			var spreadsheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQN6Mg5oA8Em6S2io-9E8MLnRnJtMNxn7KvXJ69UMNNcezkAIxZEDzqc4xw8pvKn-KNKcDZqDKZAmBo/pub?gid=1679428937&single=true&output=csv";
-          Papa.parse(spreadsheetURL, {
-          download: true,
-          header: true,
-          complete: function(results) {
-            var data = results.data;
-            console.log(data);
-          }
+
+			var spreadsheetURL = "https://sheets.googleapis.com/v4/spreadsheets/1XEy-4bzgaT8NUgIP5VzurfVybxpz-bOdchod8wP23PQ/values/'DATASHEET'!A1:AH280?key=AIzaSyBjLmpnp1XcgsxoLGA6iRerSSsjFqtAOmE";
+		console.log(spreadsheetURL);
+		
+		
+		 return fetch(spreadsheetURL).then(response =>
+        response.json().then(result => {
+            let data = Papa.parse(Papa.unparse(result.values), { header: true });
+            showInfo(data);
         })
-		}
+    );
+		
+  
+}
+      
+          
+         //   console.log(data);
+
+		
 
 
-  function showInfo(data, tabletop) {
-   rawData = data["DATA SHEET"];
-   rawArrayData = rawData.elements;
+  function showInfo(results) {
+//	console.log(results);
+   rawArrayData = results.data;
+  // console.log(rawArrayData);
+ //  rawArrayData = rawData.elements;
  //  console.log(rawArrayData);
-   setDisplays();
+  setDisplays();
 
 
   }
-  
+
 
 
   window.addEventListener('DOMContentLoaded', init)
@@ -758,6 +771,6 @@ function pullUniques(){
 	
 </script> 
   
--->
+
 </body>
 </html>

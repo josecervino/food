@@ -12,6 +12,8 @@
 <!-- THT favicon -->
 <link rel="icon" href="https://1t9ujr36h40kqq4wd2pa3xu1-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/favicon.png" sizes="32x32" /><link rel="icon" href="https://1t9ujr36h40kqq4wd2pa3xu1-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/favicon.png" sizes="192x192" /><link rel="apple-touch-icon" href="https://1t9ujr36h40kqq4wd2pa3xu1-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/favicon.png" /><meta name="msapplication-TileImage" content="https://trentonhealthteam.org/wp-content/uploads/2019/09/favicon.png" />
 
+
+
 <link rel="manifest" href="/manifest.json">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
@@ -49,6 +51,10 @@ And now replaced with PapaParse - hope this works... -->
 
 <!-- Google Translate -->
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- fullscreen -->
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 	
 
 <!-- fonts stylesheet -->   
@@ -202,8 +208,7 @@ function categoryToggle(e) {
 }
 
 
-const mappie = L.map('mapid', {scrollWheelZoom: false}).setView([40.220028,-74.766263],13);
-
+const mappie = L.map('mapid', {scrollWheelZoom: false, fullscreenControl:true}).setView([40.220028,-74.766263],13);
 
 
 L.esri.basemapLayer('Topographic');
@@ -431,6 +436,7 @@ function buildMap(data, calledbysearch) {
 	/* sorting by Summer Meal Sites then alphabetical UNLESS there is a specific thing searched in searchbox */
 	if (calledbysearch !== 1) {
 		data = sortSiteListing(data);
+//		console.log(data);
 //		console.log(calledbysearch);
 //		console.log(sortSiteListing(data));
 	}
